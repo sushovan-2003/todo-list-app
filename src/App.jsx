@@ -1,7 +1,8 @@
 import { useState,useEffect} from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import Navbar from './components/Navbar'
-
+import { FaEdit } from "react-icons/fa";
+import { AiFillDelete } from "react-icons/ai";
 
 function App() {
   const [todo, settodo] = useState("")
@@ -95,8 +96,8 @@ let todos=JSON.parse(localStorage.getItem("todos"))
               <input type="checkbox" onChange={handlecheck} checked={item.isCompleted} name={item.id}/>
               <div className={item.isCompleted ? "line-through text-white w-1/2" : "text-white w-1/2"}>{item.todo}</div>
               <div className="buttons flex gap-3">
-                <button className='bg-blue-600 hover:bg-blue-500 text-white rounded-full p-1 px-2 font-semibold' onClick={(e)=>{handleedit(e,item.id)}} >Edit</button>
-                <button className='bg-blue-600 hover:bg-blue-500 text-white rounded-full p-1 px-2 font-semibold' onClick={(e)=>{handledelete(e,item.id)}}>Delete</button>
+                <button className='bg-blue-600 hover:bg-blue-500 text-white rounded-full p-1 px-2 font-semibold' onClick={(e)=>{handleedit(e,item.id)}} ><FaEdit /></button>
+                <button className='bg-blue-600 hover:bg-blue-500 text-white rounded-full p-1 px-2 font-semibold' onClick={(e)=>{handledelete(e,item.id)}}><AiFillDelete /></button>
               </div>
             </div>
 
